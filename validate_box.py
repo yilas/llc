@@ -29,4 +29,4 @@ json_data = {
 
 response = requests.post('https://reservation.affluences.com/api/validateReservation', headers=headers, json=json_data)
 
-p.pprint(response)
+p.pprint(f'response = {response} | response.text = {response.text}')
