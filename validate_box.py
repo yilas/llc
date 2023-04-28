@@ -1,9 +1,14 @@
 import requests
 import os
+import sys
+import random
 import pprint as p
+import time
 
 assert os.getenv('VALIDATIONCODE'), "Env variable VALIDATIONCODE should be set"
 assert os.getenv('EMAIL'), "Env variable EMAIL should be set"
+
+time.sleep(random.randint(0,59))
 
 headers = {
     'authority': 'reservation.affluences.com',
@@ -30,3 +35,5 @@ json_data = {
 response = requests.post('https://reservation.affluences.com/api/validateReservation', headers=headers, json=json_data)
 
 p.pprint(f'response = {response} | response.text = {response.text}')
+
+sys.exit(0)
